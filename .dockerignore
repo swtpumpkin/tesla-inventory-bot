@@ -1,0 +1,8 @@
+.git
+.env.dist
+.github
+.idea
+.DS_Store
+artillery.json
+renovate.json
+.env

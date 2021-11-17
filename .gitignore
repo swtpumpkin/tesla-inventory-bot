@@ -1,0 +1,11 @@
+# mac trash file
+.DS_Store
+
+# node modules folder
+node_modules
+
+# editor folder
+.vscode
+
+# env file
+.env

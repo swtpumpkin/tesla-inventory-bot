@@ -1,0 +1,32 @@
+{
+  "name": "tesla_inventory_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "NODE_ENV=production NODE_PATH=src ts-node --transpile-only src",
+    "dev": "NODE_ENV=development NODE_PATH=src ts-node-dev --respawn --ignore-watch node_modules --no-notify src",
+    "eslint": "eslint . --ext .ts --fix, --ignore-pattern node_modules/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cron": "^1.8.2",
+    "dotenv": "^8.2.0",
+    "prettier": "^2.2.1",
+    "querystring": "^0.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  },
+  "devDependencies": {
+    "@types/cron": "^1.7.3",
+    "@typescript-eslint/eslint-plugin": "^4.6.1",
+    "@typescript-eslint/parser": "^4.6.1",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "ts-node-dev": "^1.1.6"
+  }
+}
