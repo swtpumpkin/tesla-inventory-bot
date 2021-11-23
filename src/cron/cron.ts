@@ -26,7 +26,7 @@ new CronJob(
         method: 'GET',
         url: `https://api.telegram.org/bot${token}/sendmessage?${qs.stringify({
           chat_id,
-          text: teslaProductName || 'Buy Item!!',
+          text: teslaProductName,
         })}`,
       });
     }

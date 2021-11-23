@@ -16,4 +16,4 @@ const {
 export const telegramToken = TELEGRAM_TOKEN.toString();
 export const telegramChatId = Number(TELEGRAM_CHAT_ID);
 export const teslaProductId = TESLA_PRODUCT_ID.toString();
-export const teslaProductName = TESLA_PRODUCT_NAME.toString();
+export const teslaProductName = TESLA_PRODUCT_NAME?.toString() || 'Buy Item!';
