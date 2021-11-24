@@ -3,7 +3,6 @@ import {
   telegramChatId,
   telegramToken,
   teslaProductId,
-  teslaProductName,
 } from 'config/environment';
 import { CronJob } from 'cron';
 import * as qs from 'querystring';
@@ -27,7 +26,7 @@ new CronJob(
         method: 'GET',
         url: `https://api.telegram.org/bot${token}/sendmessage?${qs.stringify({
           chat_id,
-          text: teslaProductName,
+          text: 'Tesla Shop Item Buy Now!',
         })}`,
       });
     }
