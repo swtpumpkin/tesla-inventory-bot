@@ -9,10 +9,10 @@ import * as qs from 'querystring';
 
 const token = telegramToken;
 const chat_id = telegramChatId;
-const randNum = Math.floor(Math.random() * (59 - 0 + 1)) + 0;
+const randomNumberZeroToFiftyNine = Math.floor(Math.random() * 60);
 
 new CronJob(
-  `${randNum} * * * * *`,
+  `${randomNumberZeroToFiftyNine} * * * * *`,
   async function () {
     const data = await axios({
       method: 'POST',
