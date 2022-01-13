@@ -16,5 +16,7 @@ jobs:
         run: docker build . --file Dockerfile --tag tesla_inventory_bot:$(date +%s)
       - name: Login to GitHub Container Registry
         run: echo ${{ secrets.DOCKER_CONTAINER_REGISTRY_TOKEN }} | docker login ghcr.io -u swtpumpkin --password-stdin
+      - name: Tagging Docker Registry Image
+        run: docker tag app ghcr.io/swtpumpkin/tesla_inventory_bot:$(date +%s)
       - name: Push Docker image to Github package registry
         run: docker push ghcr.io/swtpumpkin/tesla_inventory_bot:$(date +%s)
