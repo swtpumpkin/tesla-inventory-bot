@@ -1,4 +1,4 @@
-name: tesla_inventory_bot
+name: tesla-inventory-bot
 
 on:
   push:
@@ -12,11 +12,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag tesla_inventory_bot:$(date +%s)
       - name: Login to GitHub Container Registry
         run: echo ${{ secrets.DOCKER_CONTAINER_REGISTRY_TOKEN }} | docker login ghcr.io -u swtpumpkin --password-stdin
-      - name: Tagging Docker Registry Image
-        run: docker tag app ghcr.io/swtpumpkin/tesla_inventory_bot:$(date +%s)
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag ghcr.io/swtpumpkin/tesla-inventory-bot:$(date +%s)
       - name: Push Docker image to Github package registry
-        run: docker push ghcr.io/swtpumpkin/tesla_inventory_bot:$(date +%s)
+        run: docker push ghcr.io/swtpumpkin/tesla-inventory-bot:$(date +%s)
