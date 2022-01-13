@@ -12,9 +12,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        env: VERSION: $(date +%s)
       - name: Login to GitHub Container Registry
         run: echo ${{ secrets.DOCKER_CONTAINER_REGISTRY_TOKEN }} | docker login ghcr.io -u swtpumpkin --password-stdin
       - name: Build the Docker image
-        run: docker build . --tag ghcr.io/swtpumpkin/tesla-inventory-bot:$(date +%s)
+        run: docker build . --tag ghcr.io/swtpumpkin/tesla-inventory-bot:${{VERSION}}
       - name: Push Docker image to Github package registry
-        run: docker push ghcr.io/swtpumpkin/tesla-inventory-bot:latest
+        run: docker push ghcr.io/swtpumpkin/tesla-inventory-bot:${{VERSION}}
