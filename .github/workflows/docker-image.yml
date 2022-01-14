@@ -22,5 +22,5 @@ jobs:
         run: echo ${{ secrets.DOCKER_CONTAINER_REGISTRY_TOKEN }} | docker login ghcr.io -u swtpumpkin --password-stdin
       - name: Build the Docker image
         run: docker build . --tag ghcr.io/swtpumpkin/tesla-inventory-bot:${{ steps.image.outputs.version }}
-      - name: Push Docker image to Github package registry
+      - name: Push Docker image to GitHub Container Registry
         run: docker push ghcr.io/swtpumpkin/tesla-inventory-bot:${{ steps.image.outputs.version }}
