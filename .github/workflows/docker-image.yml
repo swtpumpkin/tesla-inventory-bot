@@ -12,15 +12,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Get verion
-        id: image
-        run: |
-          VERSION=$(echo ${{ github.sha }} | cut -c1-8)
-          echo VERSION=$VERSION
-          echo "::set-output name=version::$VERSION"
+      # - name: Get verion
+      #   id: image
+      #   run: |
+      #     VERSION=$(echo ${{ github.sha }} | cut -c1-8)
+      #     echo VERSION=$VERSION
+      #     echo "::set-output name=version::$VERSION"
       - name: Login to GitHub Container Registry
         run: echo ${{ secrets.DOCKER_CONTAINER_REGISTRY_TOKEN }} | docker login ghcr.io -u swtpumpkin --password-stdin
       - name: Build the Docker image
-        run: docker build . --tag ghcr.io/swtpumpkin/tesla-inventory-bot:${{ steps.image.outputs.version }}
+        run: docker build -t ghcr.io/swtpumpkin/tesla-inventory-bot:latest .
       - name: Push Docker image to GitHub Container Registry
-        run: docker push ghcr.io/swtpumpkin/tesla-inventory-bot:${{ steps.image.outputs.version }}
+        run: docker push ghcr.io/swtpumpkin/tesla-inventory-bot:latest
